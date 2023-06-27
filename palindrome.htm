@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Palindrome checker</title>
+  </head>
+  <body>
+    <h1>Palindrome checker</h1>
+    <form>
+      <div>
+        <label> Enter your word: </label>
+        <input type="text" id="word" />
+      </div>
+      <button type="button" onclick="checkPalindrome()">
+        Check Palindrome
+      </button>
+    </form>
+    <div id="message"></div>
+    <script>
+      function isPalindrome(word) {
+        console.log(word);
+        const wordReverse = word.split("").reverse().join("");
+        if (word === wordReverse) {
+          document.getElementById("message").innerHTML =
+            "The word is a Palindrome";
+        } else {
+          document.getElementById("message").innerHTML =
+            "The word is not a Palindrome";
+        }
+      }
+      function checkPalindrome() {
+        const Word = document.getElementById("word").value;
+        const word = Word.toLowerCase();
+
+        if (Word === "" || Word == null || Word.length < 3) {
+          document.getElementById("message").innerHTML =
+            "Be sure to enter a word with more than 2 characters";
+        } else {
+          isPalindrome(word);
+        }
+      }
+    </script>
+  </body>
+</html>
