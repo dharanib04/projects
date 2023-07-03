@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Anagram checker</title>
+  </head>
+  <body>
+    <h1>Anagram checker</h1>
+    <form>
+      <div>
+        <label> Enter your first word: </label>
+        <input type="text" id="firstWord" />
+      </div>
+      <div>
+        <label> Enter your second word: </label>
+        <input type="text" id="secondWord" />
+      </div>
+      <button type="button" onclick="checkAnagram()">Check Anagram</button>
+    </form>
+    <div id="message"></div>
+    <script>
+      function checkAnagram() {
+        const firstWord = document.getElementById("firstWord").value;
+        const lfirstWord = firstWord.toLowerCase();
+        const secondWord = document.getElementById("secondWord").value;
+        const lsecondWord = secondWord.toLowerCase();
+        const splitFirstWord = lfirstWord.split(""); //first word array
+        const splitSecondWord = lsecondWord.split(""); // second word array
+        splitFirstWord.sort();
+        splitSecondWord.sort();
+
+        if (
+          firstWord === "" ||
+          firstWord == null ||
+          secondWord === "" ||
+          secondWord == null
+        ) {
+          document.getElementById("message").innerHTML =
+            "Be sure to enter both words";
+        } else if (splitFirstWord.toString() === splitSecondWord.toString()) {
+          document.getElementById("message").innerHTML =
+            "The two words are anagram";
+        } else {
+          document.getElementById("message").innerHTML =
+            "The two words are not anagram";
+        }
+      }
+    </script>
+  </body>
+</html>
